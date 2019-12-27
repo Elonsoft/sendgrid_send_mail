@@ -4,7 +4,7 @@ Module for sending e-mails via SendGrid
 
 ## Configuration
 
-```
+```elixir
 config :phoenix_seed, SendMail,
   sendgrid_api_key: System.get_env("SENDGRID_API_KEY") || "none",
   templates: [
@@ -20,7 +20,7 @@ config :phoenix_seed, SendMail,
 
 Create a module:
 
-```
+```elixir
 defmodule MyApp.SendMail do
   use SendMail, otp_app: :my_app
 end
@@ -28,7 +28,7 @@ end
 
 Then you can use it like this:
 
-```
+```elixir
 :your_template_name
 |> MyApp.SendMail.send_template(to: "someemail@example.com", with: %{
   some_data: "asdf"
@@ -37,7 +37,7 @@ Then you can use it like this:
 ```
 or like this:
 
-```
+```elixir
 :your_template_name
 |> MyApp.SendMail.template!(to: "someemail@example.com", with: %{})
 |> MyApp.SendMail.send_template()
